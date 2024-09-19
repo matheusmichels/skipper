@@ -16,11 +16,11 @@ import (
 const (
 	OidcLogoutName = "oidcLogout"
 
-	paramClientID int = iota
-	paramClientSecret
-	paramRevokeURL
-	paramRedirectURL
-	paramCookieName
+	logoutParamClientID int = iota
+	logoutParamClientSecret
+	logoutParamRevokeURL
+	logoutParamRedirectURL
+	logoutParamCookieName
 )
 
 type (
@@ -48,27 +48,27 @@ func (s *oidcLogoutSpec) CreateFilter(args []interface{}) (filters.Filter, error
 		return nil, filters.ErrInvalidFilterParameters
 	}
 
-	clientID, ok := args[paramClientID].(string)
+	clientID, ok := args[logoutParamClientID].(string)
 	if !ok {
 		return nil, filters.ErrInvalidFilterParameters
 	}
 
-	clientSecret, ok := args[paramClientSecret].(string)
+	clientSecret, ok := args[logoutParamClientSecret].(string)
 	if !ok {
 		return nil, filters.ErrInvalidFilterParameters
 	}
 
-	revokeURL, ok := args[paramRevokeURL].(string)
+	revokeURL, ok := args[logoutParamRevokeURL].(string)
 	if !ok {
 		return nil, filters.ErrInvalidFilterParameters
 	}
 
-	redirectURL, ok := args[paramRedirectURL].(string)
+	redirectURL, ok := args[logoutParamRedirectURL].(string)
 	if !ok {
 		return nil, filters.ErrInvalidFilterParameters
 	}
 
-	cookieName, ok := args[paramCookieName].(string)
+	cookieName, ok := args[logoutParamCookieName].(string)
 	if !ok {
 		return nil, filters.ErrInvalidFilterParameters
 	}
